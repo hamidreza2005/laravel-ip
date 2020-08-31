@@ -1,0 +1,27 @@
+{
+    "name": "hamidreza2005/laravel-ip",
+    "description": "a package for get client's location by ip address",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "ip",
+        "laravel-ip",
+        "location"
+    ],
+    "authors": [
+        {
+            "name": "Hamidreza Hassani",
+            "email": "h.r.hassani2005@gmail.com",
+            "role" : "Developer"
+        }
+    ],
+    "require": {
+        "illuminate/support": "~7"
+    },
+    "autoload": {
+        "psr-4": {
+            "hamidreza2005\\laravelIp\\": "src/"
+        }
+    }
+}
