@@ -23,5 +23,15 @@
         "psr-4": {
             "hamidreza2005\\laravelIp\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "hamidreza2005\\laravelIp\\IpServiceProvider"
+            ],
+            "aliases": {
+                "Ip": "hamidreza2005\\laravelIp\\Facades\\Ip"
+            }
+        }
     }
 }
