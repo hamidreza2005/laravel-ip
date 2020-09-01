@@ -15,7 +15,7 @@ class ipapi extends DriverAbstract
     public function __construct()
     {
         $token = config('ip.drivers.ipapi.api_token');
-        $response = Http::get(self::URL.$this->ip()."?access_key=$token&security=1");
+        $response = Http::get(self::URL.$this->ip()."?access_key=$token&security=1:wq");
         if ($response->failed()){
             throw new \Exception($response->json()['error']['info']);
         }

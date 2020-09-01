@@ -1,7 +1,19 @@
 <?php
 
 return [
-
+    /*
+    |--------------------------------------------------------------------------
+    | Ip Driver
+    |--------------------------------------------------------------------------
+    |
+    | Here is where you can choose your driver for getting location from ip
+    | Supported :
+    |   "ipinfo" => visit https://www.ipinfo.io,
+    |   "ipapi" => visit https://www.ipapi.com,
+    |   "geojs" => visit https://www.geojs.io/
+    | Suggested : "geojs"
+    |
+    */
     "ip_driver" => "ipapi",
 
     "drivers" =>[
