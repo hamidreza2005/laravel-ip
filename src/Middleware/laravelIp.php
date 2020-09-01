@@ -11,7 +11,8 @@ class laravelIp
         $whitelist = config("ip.blocking.whitelist");
         if (!empty($whitelist)){
             for ($i=0;$i<=count($whitelist);$i++){
-                if (in_array(IP::$key(),$whitelist()))
+                $key = array_keys($whitelist)[$i];
+                if (in_array(IP::$key(),$whitelist[$i]))
                     return $next($request);
                 if($i === count($whitelist))
                     return abort(403);
