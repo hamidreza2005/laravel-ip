@@ -69,6 +69,40 @@ Ip::coordinates() // return client's coordinates
 Ip::ip() // return all client's ip
 ```
 **Notice :** because of every driver have different Structure you should use all method to access Details about IP
+
+## Block Client by Ip
+if you want to block client by ip or something like this you have to add this middleware to `app/Http/kernel.php` :
+```php
+protected $middleware = [  
+	...
+	\hamidreza2005\laravelIp\Middleware\laravelIp::class,
+	...
+];
+```
+and choose which ips or countries is in blacklist or whitelist in `config/ip.php`:
+```php
+<?php
+return [
+	...
+	"blocking"=>[  
+		  /*  
+		 * The values in this array won't access to website 
+		 */ 
+		  "blacklist"=>[  
+			  "countryCode"=>["NK"],  
+			  "ip"=>["5.61.44.90"],
+			  "coordinates" =>[[1.2.3.4,45.5.8.9]]  
+		 ],  
+		 /*  
+		 * only The values in this array can access to website 
+		 */
+		 "whitelist"=>[  
+//                  "countryCode"=>["US"]  
+		  ]  
+	 ]
+	...
+];
+```
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
