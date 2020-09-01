@@ -9,7 +9,13 @@ class laravelIp
     public function handle($request,\Closure $next)
     {
         $whitelist = config("ip.blocking.whitelist");
+        /*
+         * Check if white list is empty
+         */
         if (!empty($whitelist)){
+            /*
+             * Check if client's ip is in whitelist
+             */
             for ($i=0;$i<=count($whitelist);$i++){
                 $key = array_keys($whitelist)[$i];
                 if (in_array(IP::$key(),$whitelist[$i]))
