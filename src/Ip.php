@@ -3,6 +3,7 @@ namespace hamidreza2005\laravelIp;
 
 
 use hamidreza2005\laravelIp\Drivers\geojs;
+use hamidreza2005\laravelIp\Drivers\ipapi;
 use hamidreza2005\laravelIp\Drivers\ipinfo;
 
 class Ip
@@ -24,6 +25,9 @@ class Ip
                break;
            case "ipinfo":
                $this->driver =  new ipinfo();
+               break;
+           case "ipapi":
+               $this->driver = new ipapi();
                break;
            default:
                throw new \Exception("Unknown Driver");
