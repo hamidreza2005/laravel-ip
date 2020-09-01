@@ -30,7 +30,7 @@
                 "hamidreza2005\\laravelIp\\IpServiceProvider"
             ],
             "aliases": {
-                "Ip": "hamidreza2005\\laravelIp\\Facades\\Ip"
+                "IP": "hamidreza2005\\laravelIp\\Facades\\IP"
             }
         }
     }

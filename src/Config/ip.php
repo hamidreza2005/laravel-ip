@@ -23,5 +23,15 @@ return [
         "ipapi" =>[
             "api_token" => env("IPAPI_API_TOKEN","")
         ]
+    ],
+
+    "blocking"=>[
+        "blacklist"=>[
+            "countryCode"=>["EN"],
+            "ip"=>["5.61.44.90"]
+        ],
+        "whitelist"=>[
+//            "countryCode"=>["IR"]
+        ]
     ]
 ];

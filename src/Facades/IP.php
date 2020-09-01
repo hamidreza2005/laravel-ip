@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static Collection coordinates()
  * @method static string countryCode()
  */
-class Ip extends Facade
+class IP extends Facade
 {
     protected static function getFacadeAccessor()
     {
