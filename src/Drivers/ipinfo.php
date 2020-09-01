@@ -24,4 +24,8 @@ class ipinfo extends DriverAbstract
         $this->location = collect($response->json());
     }
 
+    public function countryCode()
+    {
+        return $this->location->get('country');
+    }
 }

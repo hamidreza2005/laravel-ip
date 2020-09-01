@@ -14,14 +14,14 @@ return [
     | Suggested : "geojs"
     |
     */
-    "ip_driver" => "ipapi",
+    "ip_driver" => "geojs",
 
     "drivers" =>[
         "ipinfo" =>[
-            "api_token" => '13cf1a11478776'
+            "api_token" => env("IPINFO_API_TOKEN","")
         ],
         "ipapi" =>[
-            "api_token" => "e69a645642003dbbf91091f0d6edd514"
+            "api_token" => env("IPAPI_API_TOKEN","")
         ]
     ]
 ];

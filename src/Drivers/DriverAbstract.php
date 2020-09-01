@@ -31,30 +31,12 @@ abstract class DriverAbstract
     }
 
     /**
-     * Get client's Organization
-     * @return string
-     */
-    public function org()
-    {
-        return $this->location->get('organization_name');
-    }
-
-    /**
      * Get client's Coordinates
      * @return Collection
      */
     public function coordinates():Collection
     {
         return collect([$this->location->get('longitude'),$this->location->get('longitude')]);
-    }
-
-    /**
-     * Get client's timezone
-     * @return String
-     */
-    public function timezone()
-    {
-        return $this->location->get('timezone');
     }
 
     /**
