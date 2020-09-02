@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static Collection all()
  * @method static Collection coordinates()
  * @method static string countryCode()
+ * @method static string country()
  */
 class IP extends Facade
 {
