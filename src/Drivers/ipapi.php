@@ -21,4 +21,9 @@ class ipapi extends DriverAbstract
         }
         $this->location = collect($response->json());
     }
+
+    public function country()
+    {
+        return $this->location->get('country_name');
+    }
 }

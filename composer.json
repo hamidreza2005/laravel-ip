@@ -17,7 +17,8 @@
         }
     ],
     "require": {
-        "illuminate/support": "~7"
+        "illuminate/support": "~7",
+        "ext-json": "*"
     },
     "autoload": {
         "psr-4": {

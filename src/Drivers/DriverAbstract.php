@@ -60,4 +60,9 @@ abstract class DriverAbstract
         }
         return $res['ip'];
     }
+
+    public function country()
+    {
+        return $this->location->get('country');
+    }
 }
