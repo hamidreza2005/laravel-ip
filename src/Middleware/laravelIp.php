@@ -24,6 +24,9 @@ class laravelIp
                     return abort(403);
             }
         }
+        /*
+         * Check if client's ip is in blacklist
+         */
         foreach (config("ip.blocking.blacklist") as $key => $value){
             if (in_array(IP::$key(),$value))
                 return abort(403);
