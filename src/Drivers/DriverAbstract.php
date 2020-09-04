@@ -11,6 +11,14 @@ abstract class DriverAbstract
     protected $ip;
 
     /**
+     * Driver constructor.
+     * @throws \Exception
+     */
+    public function __construct()
+    {
+        $this->setIp();
+    }
+    /**
      * Get Client's Ip
      * @return string
      * @throws \Exception

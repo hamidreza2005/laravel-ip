@@ -11,16 +11,6 @@ class ipinfo extends DriverAbstract
 {
     const URL = 'https://www.ipinfo.io/';
 
-    /**
-     * ipinfo constructor.
-     * @throws \Exception
-     */
-    public function __construct()
-    {
-        $this->setIp();
-        $this->setLocation();
-    }
-
     public function countryCode()
     {
         return $this->location->get('country');

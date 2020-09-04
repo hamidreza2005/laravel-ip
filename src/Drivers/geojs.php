@@ -9,15 +9,6 @@ class geojs extends DriverAbstract
     const URL = 'https://get.geojs.io/v1/ip/geo/';
 
     /**
-     * geojs constructor.
-     * @throws \Exception
-     */
-    public function __construct()
-    {
-        $this->setIp();
-    }
-
-    /**
      * Set Location
      * @return void
      * @throws \Exception

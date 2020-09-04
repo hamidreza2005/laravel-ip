@@ -8,15 +8,6 @@ class ipapi extends DriverAbstract
 {
 
     const URL = "http://api.ipapi.com/";
-    /**
-     * ipapi constructor.
-     * @throws \Exception
-     */
-    public function __construct()
-    {
-        $this->setIp();
-        $this->setLocation();
-    }
 
     public function country()
     {
