@@ -2,6 +2,7 @@
 namespace hamidreza2005\laravelIp\Drivers;
 
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
 class ipapi extends DriverAbstract
@@ -21,10 +22,15 @@ class ipapi extends DriverAbstract
      */
     public function setLocation()
     {
+        parent::setLocation();
         $token = config('ip.drivers.ipapi.api_token');
         $response = Http::get(self::URL.$this->ip()."?access_key=$token&security=1:wq");
         if ($response->failed()){
             throw new \Exception($response->json()['error']['info']);
+        }
+        $location = collect($response->json());
+        if (config("ip.caching")){
+            Cache::put("location_".$this->ip(),$location,now()->addWeek());
         }
         $this->location = collect($response->json());
     }

@@ -25,10 +25,12 @@ return [
             "api_token" => env("IPAPI_API_TOKEN","")
         ]
     ],
+
     "blocking"=>[
         /*
        * The values in this array won't access to website
        */
+
         "blacklist"=>[
             "countryCode"=>["NK"],
             "ip"=>["5.61.44.90"],
@@ -37,8 +39,14 @@ return [
 		 /*
 		 * only The values in this array can access to website
 		 */
+
 		 "whitelist"=>[
 //          "countryCode"=>["US"]
         ]
-	 ]
+	 ],
+
+    /*
+     * Make it false if don't want to cache locations
+     */
+    "caching" => true
 ];

@@ -4,6 +4,7 @@ namespace hamidreza2005\laravelIp\Drivers;
 
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
@@ -38,10 +39,15 @@ class ipinfo extends DriverAbstract
      */
     public function setLocation()
     {
+        parent::setLocation();
         $token = config('ip.drivers.ipinfo.api_token');
         $response = Http::withHeaders(["Accept"=>"application/json"])->get(static::URL.$this->ip()."?token=$token");
         if ($response->failed()){
             throw new \Exception($response->json());
+        }
+        $location = collect($response->json());
+        if (config("ip.caching")){
+            Cache::put("location_".$this->ip(),$location,now()->addWeek());
         }
         $this->location = collect($response->json());
     }

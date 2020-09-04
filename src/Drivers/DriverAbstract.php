@@ -2,6 +2,7 @@
 namespace hamidreza2005\laravelIp\Drivers;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
 abstract class DriverAbstract
@@ -37,15 +38,11 @@ abstract class DriverAbstract
     {
         if (!is_null($ip)){
             $this->ip = $ip;
-            $this->setLocation();
-            return;
-        }
-        if (config('app.debug')){
+        }else if (config('app.debug')){
             $this->ip = $this->getClientIpInDebugMode();
-            $this->setLocation();
-            return;
+        }else{
+            $this->ip = request()->ip();
         }
-        $this->ip = request()->ip();
         $this->setLocation();
     }
 
@@ -96,8 +93,14 @@ abstract class DriverAbstract
 
     /**
      * Set Location
-     * @throws \Exception
      * @return void
+     * @throws \Exception
      */
-    abstract public function setLocation();
+    public function setLocation()
+    {
+        $key = "location_".$this->ip();
+        if (Cache::has($key) && config("ip.caching")){
+            $this->location = collect(Cache::get($key));
+        }
+    }
 }

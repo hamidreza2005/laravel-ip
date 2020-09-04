@@ -23,3 +23,13 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Changed
 
 - Package Structure
+
+## v 2.1.0 - 2020-04-09
+### Added
+
+- Caching Location 
+
+### Fixed
+
+- Fixed Some bugs
+- Refactor Codes  
