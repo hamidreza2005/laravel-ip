@@ -1,4 +1,3 @@
-
 # Laravel IP  
 this package helps you to find client's location by IP address 🚀  
 ## installation  
@@ -71,7 +70,29 @@ IP::ip() // return all client's ip
 IP::country() // return all client's country full name e.g Germany  
 ```  
 **Notice :** because of every driver have different Structure you should use all method to access Details about IP  
-
+### Get Location from custom IP
+if you want to get location from a custom ip you can use $ip parameter:
+```php
+IP::all("8.8.8.8")
+```
+above command get location from ip `8.8.8.8` and have following result:
+```json
+{
+  "organization_name": "GOOGLE",
+  "accuracy": 1000,
+  "asn": 15169,
+  "organization": "AS15169 GOOGLE",
+  "timezone": "America/Chicago",
+  "longitude": "-97.822",
+  "country_code3": "USA",
+  "area_code": "0",
+  "ip": "8.8.8.8",
+  "country": "United States",
+  "continent_code": "NA",
+  "country_code": "US",
+  "latitude": "37.751"
+}
+```
 ### Get Country fullname in ipinfo driver
 as you know there is not country fullname in ipinfo structure. so if want to use ipinfo driver and you want country fullname `e.g France` you can make a json file where you like and write this code in `config/ip.php` :
 ```php
@@ -92,6 +113,7 @@ and for example  `default.json` file must be like this :
 {   
   "US": "United State",  
   "DE": "Germany"
+}
 ``` 
 Now you can get country fullname by `IP::country()` in ipinfo driver
 ## Block Client by Ip  
