@@ -14,7 +14,7 @@ return [
     | Suggested : "geojs"
     |
     */
-    "ip_driver" => "ipinfo",
+    "ip_driver" => "geojs",
 
     "drivers" =>[
         "ipinfo" =>[

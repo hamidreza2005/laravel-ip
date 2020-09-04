@@ -17,12 +17,8 @@ class ipinfo extends DriverAbstract
      */
     public function __construct()
     {
-        $token = config('ip.drivers.ipinfo.api_token');
-        $response = Http::withHeaders(["Accept"=>"application/json"])->get(static::URL.$this->ip()."?token=$token");
-        if ($response->failed()){
-            throw new \Exception($response->json());
-        }
-        $this->location = collect($response->json());
+        $this->setIp();
+        $this->setLocation();
     }
 
     public function countryCode()
@@ -43,5 +39,20 @@ class ipinfo extends DriverAbstract
         }
         $fullnames = (array) json_decode(file_get_contents($json_file_path));
         return $fullnames[$this->countryCode()] ?? $this->countryCode();
+    }
+
+    /**
+     * Set Location
+     * @return void
+     * @throws \Exception
+     */
+    public function setLocation()
+    {
+        $token = config('ip.drivers.ipinfo.api_token');
+        $response = Http::withHeaders(["Accept"=>"application/json"])->get(static::URL.$this->ip()."?token=$token");
+        if ($response->failed()){
+            throw new \Exception($response->json());
+        }
+        $this->location = collect($response->json());
     }
 }

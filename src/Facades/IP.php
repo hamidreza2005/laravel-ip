@@ -7,11 +7,11 @@ use Illuminate\Support\Facades\Facade;
 /**
  * Class Ip
  * @package hamidreza2005\laravelIp\Facades
- * @method static string ip()
- * @method static Collection all()
- * @method static Collection coordinates()
- * @method static string countryCode()
- * @method static string country()
+ * @method static string ip(string $ip)
+ * @method static Collection all(string $ip)
+ * @method static Collection coordinates(string $ip)
+ * @method static string countryCode(string $ip)
+ * @method static string country(string $ip)
  */
 class IP extends Facade
 {

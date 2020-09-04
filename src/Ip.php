@@ -36,6 +36,9 @@ class Ip
 
     public function __call($method,$options)
     {
+        if (isset($options[0])){
+            $this->driver->setIp($options[0]);
+        }
         return $this->driver->$method($options);
     }
 }

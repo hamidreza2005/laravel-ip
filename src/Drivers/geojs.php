@@ -14,6 +14,16 @@ class geojs extends DriverAbstract
      */
     public function __construct()
     {
+        $this->setIp();
+    }
+
+    /**
+     * Set Location
+     * @return void
+     * @throws \Exception
+     */
+    public function setLocation()
+    {
         $response = Http::get(self::URL.$this->ip().'.json');
         if ($response->failed()){
             throw new \Exception($response);

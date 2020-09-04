@@ -8,6 +8,8 @@ abstract class DriverAbstract
 {
     protected $location;
 
+    protected $ip;
+
     /**
      * Get Client's Ip
      * @return string
@@ -15,10 +17,28 @@ abstract class DriverAbstract
      */
     public function ip():string
     {
-        if (config('app.debug')){
-            return $this->getClientIpInDebugMode();
+        return $this->ip;
+    }
+
+    /**
+     * Get Ip Property
+     * @return void
+     * @param mixed $ip
+     */
+    public function setIp($ip = null):void
+    {
+        if (!is_null($ip)){
+            $this->ip = $ip;
+            $this->setLocation();
+            return;
         }
-        return request()->ip();
+        if (config('app.debug')){
+            $this->ip = $this->getClientIpInDebugMode();
+            $this->setLocation();
+            return;
+        }
+        $this->ip = request()->ip();
+        $this->setLocation();
     }
 
     /**
@@ -36,7 +56,7 @@ abstract class DriverAbstract
      */
     public function coordinates():Collection
     {
-        return collect([$this->location->get('longitude'),$this->location->get('longitude')]);
+        return collect([$this->location->get('latitude'),$this->location->get('longitude')]);
     }
 
     /**
@@ -65,4 +85,11 @@ abstract class DriverAbstract
     {
         return $this->location->get('country');
     }
+
+    /**
+     * Set Location
+     * @throws \Exception
+     * @return void
+     */
+    abstract public function setLocation();
 }

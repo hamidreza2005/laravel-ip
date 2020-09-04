@@ -7,7 +7,8 @@
         "laravel",
         "ip",
         "laravel-ip",
-        "location"
+        "location",
+        "get_location"
     ],
     "authors": [
         {
@@ -23,6 +24,11 @@
     "autoload": {
         "psr-4": {
             "hamidreza2005\\laravelIp\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "hamidreza2005\\laravelIp\\tests\\": "tests/"
         }
     },
     "extra": {
