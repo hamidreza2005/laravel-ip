@@ -33,3 +33,11 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Fixed Some bugs
 - Refactor Codes  
+
+## v 2.1.1 - 2020-06-09
+### Fixed
+
+- Fixed Some Bugs
+### Added 
+
+- tests
