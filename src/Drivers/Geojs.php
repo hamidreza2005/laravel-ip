@@ -1,19 +1,13 @@
 <?php
 namespace hamidreza2005\laravelIp\Drivers;
 
-
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
-class ipapi extends DriverAbstract
+class Geojs extends DriverAbstract
 {
-
-    const URL = "http://api.ipapi.com/";
-
-    public function country()
-    {
-        return $this->location->get('country_name');
-    }
+    const URL = 'https://get.geojs.io/v1/ip/geo/';
 
     /**
      * Set Location
@@ -23,15 +17,14 @@ class ipapi extends DriverAbstract
     public function setLocation()
     {
         parent::setLocation();
-        $token = config('ip.drivers.ipapi.api_token');
-        $response = Http::get(self::URL.$this->ip()."?access_key=$token&security=1:wq");
+        $response = Http::get(self::URL.$this->ip().'.json');
         if ($response->failed()){
-            throw new \Exception($response->json()['error']['info']);
+            throw new \Exception($response);
         }
         $location = collect($response->json());
         if (config("ip.caching")){
             Cache::put("location_".$this->ip(),$location,now()->addWeek());
         }
-        $this->location = collect($response->json());
+        $this->location = $location;
     }
 }

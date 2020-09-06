@@ -21,6 +21,9 @@
         "illuminate/support": "~7",
         "ext-json": "*"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5"
+    },
     "autoload": {
         "psr-4": {
             "hamidreza2005\\laravelIp\\": "src/"
@@ -30,6 +33,9 @@
         "psr-4": {
             "hamidreza2005\\laravelIp\\tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "test": "phpunit"
     },
     "extra": {
         "laravel": {

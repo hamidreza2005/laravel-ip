@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
-class ipinfo extends DriverAbstract
+class Ipinfo extends DriverAbstract
 {
     const URL = 'https://www.ipinfo.io/';
 

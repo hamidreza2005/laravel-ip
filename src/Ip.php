@@ -2,16 +2,16 @@
 namespace hamidreza2005\laravelIp;
 
 
-use hamidreza2005\laravelIp\Drivers\geojs;
-use hamidreza2005\laravelIp\Drivers\ipapi;
-use hamidreza2005\laravelIp\Drivers\ipinfo;
+use hamidreza2005\laravelIp\Drivers\Geojs;
+use hamidreza2005\laravelIp\Drivers\Ipapi;
+use hamidreza2005\laravelIp\Drivers\Ipinfo;
 
 class Ip
 {
     /**
      * IP Driver
      */
-    protected $driver;
+    private $driver;
 
     /**
      * Ip constructor.
@@ -21,13 +21,13 @@ class Ip
     {
        switch (config('ip.ip_driver')){
            case 'geojs':
-               $this->driver =  new geojs();
+               $this->driver =  new Geojs();
                break;
            case "ipinfo":
-               $this->driver =  new ipinfo();
+               $this->driver =  new Ipinfo();
                break;
            case "ipapi":
-               $this->driver = new ipapi();
+               $this->driver = new Ipapi();
                break;
            default:
                throw new \Exception("Unknown Driver");
