@@ -67,7 +67,10 @@ IP::countryCode() // return country Code e.g DE
 IP::all() // return all Details about client's ip  
 IP::coordinates() // return client's coordinates  
 IP::ip() // return all client's ip  
-IP::country() // return all client's country full name e.g Germany  
+IP::country() // return all client's country full name e.g Germany
+// Or you can use helper function
+ip()->country();
+ip("coountry"); // Both of them are true  
 ```  
 **Notice :** because of every driver have different Structure you should use all method to access Details about IP  
 ### Get Location from custom IP

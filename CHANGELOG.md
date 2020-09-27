@@ -41,3 +41,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Added 
 
 - tests
+
+## v 2.2.0 - 2020-27-09
+### Added
+
+- `ip()` helper function
