@@ -48,5 +48,5 @@ return [
     /*
      * Make it false if don't want to cache locations
      */
-    "caching" => true
+    "caching" => false
 ];

@@ -27,7 +27,10 @@
     "autoload": {
         "psr-4": {
             "hamidreza2005\\laravelIp\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
