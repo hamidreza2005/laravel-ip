@@ -1,6 +1,6 @@
 # Laravel IP  
 a package for find location by IP address 🚀  
-## installation  
+## 📥 installation  
 you can install this package via Composer :   
 ```bash  
 composer require hamidreza2005/laravel-ip  
@@ -9,7 +9,7 @@ and after installation use this command to publish configs :
 ```bash  
 php artisan vendor:publish --tag=laravel-ip  
 ```  
-## Configuration  
+## :gear: Configuration  
   
 for configure this package go to `config/ip.php` and choose your driver  
 ```php  
@@ -49,7 +49,7 @@ return [
 ```  
 **Notice :** if you Choose "geojs" driver you don't need to have API token.  
   
-## Usage  
+## :wrench: Usage  
 ```php  
 use hamidreza2005\laravelIp\Facades\Ip;  
   
@@ -119,7 +119,7 @@ and for example  `default.json` file must be like this :
 }
 ``` 
 Now you can get country fullname by `IP::country()` in ipinfo driver
-## Block Client by Ip  
+## 🚫 Block Client by Ip  
 if you want to block client by ip or something like this you have to add this middleware to `app/Http/kernel.php` :  
 ```php  
 protected $middleware = [    
@@ -152,7 +152,7 @@ return [
    ...  
 ];  
 ```  
-## License  
+## :scroll: License  
   
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.  
   
