@@ -1,5 +1,5 @@
 # Laravel IP  
-this package helps you to find client's location by IP address 🚀  
+a package for find location by IP address 🚀  
 ## installation  
 you can install this package via Composer :   
 ```bash  
@@ -63,11 +63,11 @@ DE
 ```  
 and you can use other methods :  
 ```php  
-IP::countryCode() // return country Code e.g DE  
-IP::all() // return all Details about client's ip  
-IP::coordinates() // return client's coordinates  
-IP::ip() // return all client's ip  
-IP::country() // return all client's country full name e.g Germany
+IP::countryCode(); // return country Code e.g DE  
+IP::all(); // return all Details about client's ip  
+IP::coordinates(); // return client's coordinates  
+IP::ip(); // return all client's ip  
+IP::country(); // return all client's country full name e.g Germany
 // Or you can use helper function
 ip()->country();
 ip("coountry"); // Both of them are true  
@@ -103,9 +103,9 @@ as you know there is not country fullname in ipinfo structure. so if want to use
 return [
 	...
 	"drivers" =>[  
-		  "ipinfo" =>[  
-			  "api_token" => "YOUR_API_TOKEN",  
-			  "full_country_name_path" => storage_path('default.json')  
+        "ipinfo" =>[  
+            "api_token" => "YOUR_API_TOKEN",  
+            "full_country_name_path" => storage_path('default.json')  
 		  ]
 	 ],  
 	 ...
